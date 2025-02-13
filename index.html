@@ -58,6 +58,12 @@
 </body>
 </html> -->
 
+
+
+
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -68,24 +74,25 @@
 </head>
 <body>
     <div class="container">
-        <h1>Send a Personalized Message to your loved Ones 💌</h1>
+        <h1 id="page-heading">Send a Personalized Valentine's Message 💌</h1>
 
-        <!-- Form container -->
+
         <div id="messageFormContainer">
             <form id="messageForm">
                 <label for="recipient">Recipient's Name:</label>
                 <input type="text" id="recipient" required>
 
-                <label for="message">Your Message:</label>
+                <label for="message">Your Message : </label>
                 <textarea id="message" required></textarea>
 
-                <label for="aiPoem">Generate AI Poem?</label>
+                <label for="aiPoem">Generate AI Poem ? </label>
                 <input type="checkbox" id="aiPoem">
 
-                <button type="submit">Generate Link</button>
+                <button type="submit"> Generate Link</button>
             </form>
+            <p id="loadingMessage" class="hidden">Generating AI poem...</p>
         </div>
-
+ 
         <div id="generatedLink" class="hidden">
             <p>Share this link with your loved one:</p>
             <input type="text" id="shareableLink" readonly>
@@ -105,10 +112,21 @@
         </div>
     </div>
 
-    <!-- Button to show the form if hidden -->
     <button id="openMessageForm" class="cta-button hidden">✨ Create Your Own Message</button>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="script.js"></script>
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+

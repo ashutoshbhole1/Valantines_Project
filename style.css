@@ -61,9 +61,14 @@
         }
          */
 
+@font-face {
+    font-family: Valentina;
+    src: url(Assets/fonts/hello_valentica/Hello\ Valentina.ttf);
+} 
 
 
 body {
+    /* font-family: Valentina; */
     font-family: Arial, sans-serif;
     background-color: #ffebee;
     text-align: center;
@@ -163,6 +168,7 @@ button {
 
 input#aiPoem{
     min-height: .9rem;
+
 }
 
 #revealedMessage{
@@ -170,6 +176,7 @@ input#aiPoem{
  font-weight: 500;   
  letter-spacing: 1px;
  font-style: italic;
- font-size: .9rem;
+ font-size: 1rem;
     margin-bottom: 5.5rem;
+    font-family: Valentina;
 }
