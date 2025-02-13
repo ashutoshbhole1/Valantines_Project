@@ -1,0 +1,114 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Valentine's Surprise</title>
+    <link rel="stylesheet" href="style.css">
+    
+</head>
+<body>
+    <div class="container">
+        <h1>Send a Personalized Valentine's Message 💌</h1>
+        
+        <form id="messageForm">
+            <label for="recipient">Recipient's Name:</label>
+            <input type="text" id="recipient" required>
+
+            <label for="message">Your Message:</label>
+            <textarea id="message" required></textarea>
+
+            <label for="aiPoem">Generate AI Poem?</label>
+            <input type="checkbox" id="aiPoem">
+            
+            <button type="submit">Generate Link</button>
+        </form>
+        
+        <div id="generatedLink" style="display: none;">
+            <p>Share this link with your loved one:</p>
+            <input type="text" id="shareableLink" readonly>
+            <button onclick="copyLink()">Copy</button>
+        </div>
+    </div>
+
+    <div class="container" id="revealContainer" style="display: none;">
+        <div class="card" id="valentineCard">
+            <div class="front">
+                <img src="Assets/Img/Envelope.jpg" alt="Closed Letter" width="100">
+                <p>Click to Open</p>
+            </div>
+            <div class="inside" style="background: url('Assets/Img/LETTER\ valantines.png') no-repeat center/cover;">
+                <p id="revealedMessage">❤️ Your special message will appear here! ❤️</p>
+            </div>
+        </div>
+    </div>
+    This button will be visible only if someone opens a shared link
+<button id="openMessageForm" class="cta-button hidden">✨ Create Your Own Message</button>
+
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script>
+        document.getElementById("valentineCard").addEventListener("click", function() {
+            gsap.to(".front", { rotationY: 180, duration: 1 });
+            gsap.to(".inside", { rotationY: 0, duration: 1, delay: 0.2 });
+        });
+    </script>
+    <script src="script.js"></script>
+</body>
+</html> -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Valentine's Surprise</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Send a Personalized Message to your loved Ones 💌</h1>
+
+        <!-- Form container -->
+        <div id="messageFormContainer">
+            <form id="messageForm">
+                <label for="recipient">Recipient's Name:</label>
+                <input type="text" id="recipient" required>
+
+                <label for="message">Your Message:</label>
+                <textarea id="message" required></textarea>
+
+                <label for="aiPoem">Generate AI Poem?</label>
+                <input type="checkbox" id="aiPoem">
+
+                <button type="submit">Generate Link</button>
+            </form>
+        </div>
+
+        <div id="generatedLink" class="hidden">
+            <p>Share this link with your loved one:</p>
+            <input type="text" id="shareableLink" readonly>
+            <button onclick="copyLink()">Copy</button>
+        </div>
+    </div>
+
+    <div class="container hidden" id="revealContainer">
+        <div class="card" id="valentineCard">
+            <div class="front">
+                <img src="Assets/Img/Envelope.jpg" class="envelope" alt="Closed Letter" width="100">
+                <p>Click to Open</p>
+            </div>
+            <div class="inside" style="background: url('Assets/Img/LETTER\ valantines.png') no-repeat center/cover;">
+                <p id="revealedMessage">❤️ Express Your Love with a Special Message 💌❤️</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Button to show the form if hidden -->
+    <button id="openMessageForm" class="cta-button hidden">✨ Create Your Own Message</button>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
