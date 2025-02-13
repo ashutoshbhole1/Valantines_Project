@@ -313,7 +313,7 @@ document.getElementById("messageForm").addEventListener("submit", async function
 // }
 
 async function generateAIPoem(recipient, message) {
-    const apiKey = "sk-..." // Your OpenAI API key
+    const apiKey = "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" // Your OpenAI API key
 
     const prompt = `Write a short and romantic poem for ${recipient}, incorporating this message: "${message}". Keep it heartfelt and poetic.`;
 
