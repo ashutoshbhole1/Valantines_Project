@@ -258,22 +258,22 @@ document.getElementById("messageForm").addEventListener("submit", async function
     event.preventDefault();
     const recipient = document.getElementById("recipient").value;
     const message = document.getElementById("message").value;
-    const aiPoemChecked = document.getElementById("aiPoem").checked;
-    const loadingMessage = document.getElementById("loadingMessage");
+    // const aiPoemChecked = document.getElementById("aiPoem").checked;
+    // const loadingMessage = document.getElementById("loadingMessage");
 
-    let generatedText = `${message}`;
-    // let generatedText = `Dear ${recipient}, ${message}`;
+    // let generatedText = `${message}`;
+    let generatedText = `Dear ${recipient}, ${message}`;
 
-    if (aiPoemChecked) {
-        loadingMessage.classList.remove("hidden");
-        try {
-            const poem = await generateAIPoem(recipient, message);
-            generatedText += `\n\n💖 AI-Generated Poem 💖\n${poem}`;
-        } catch (error) {
-            generatedText += "\n(Poem generation failed. Please try again.)";
-        }
-        loadingMessage.classList.add("hidden");
-    }
+    // if (aiPoemChecked) {
+    //     loadingMessage.classList.remove("hidden");
+    //     try {
+    //         const poem = await generateAIPoem(recipient, message);
+    //         generatedText += `\n\n💖 AI-Generated Poem 💖\n${poem}`;
+    //     } catch (error) {
+    //         generatedText += "\n(Poem generation failed. Please try again.)";
+    //     }
+    //     loadingMessage.classList.add("hidden");
+    // }
 
     let uniqueId = Math.random().toString(36).substring(2, 8);
     localStorage.setItem(uniqueId, generatedText);
@@ -313,47 +313,47 @@ document.getElementById("messageForm").addEventListener("submit", async function
 //     }
 // }
 
-async function generateAIPoem(recipient, message) {
-    const apiKey = "s" // Your OpenAI API key
+// async function generateAIPoem(recipient, message) {
+//     const apiKey = "s" // Your OpenAI API key
 
-    const prompt = `Write a short and romantic poem for ${recipient}, incorporating this message: "${message}". Keep it heartfelt and poetic.`;
+//     const prompt = `Write a short and romantic poem for ${recipient}, incorporating this message: "${message}". Keep it heartfelt and poetic.`;
 
-    try {
-        const response = await fetch("https://api.openai.com/v1/completions", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-                "Authorization": `Bearer ${apiKey}`
-            },
-            body: JSON.stringify({
-                model: "gpt-3.5-turbo-instruct",
-                prompt: prompt,
-                max_tokens: 50,
-                temperature: 0.7
-            })
-        });
+//     try {
+//         const response = await fetch("https://api.openai.com/v1/completions", {
+//             method: "POST",
+//             headers: {
+//                 "Content-Type": "application/json",
+//                 "Authorization": `Bearer ${apiKey}`
+//             },
+//             body: JSON.stringify({
+//                 model: "gpt-3.5-turbo-instruct",
+//                 prompt: prompt,
+//                 max_tokens: 50,
+//                 temperature: 0.7
+//             })
+//         });
 
-        if (response.status === 429) {
-            console.warn("OpenAI API rate limit exceeded. Retrying in 10 seconds...");
-            await new Promise(resolve => setTimeout(resolve, 10000)); // Wait 10 sec and retry
-            return generateAIPoem(recipient, message);
-        }
+//         if (response.status === 429) {
+//             console.warn("OpenAI API rate limit exceeded. Retrying in 10 seconds...");
+//             await new Promise(resolve => setTimeout(resolve, 10000)); // Wait 10 sec and retry
+//             return generateAIPoem(recipient, message);
+//         }
 
-        if (!response.ok) {
-            throw new Error(`API error: ${response.status} - ${response.statusText}`);
-        }
+//         if (!response.ok) {
+//             throw new Error(`API error: ${response.status} - ${response.statusText}`);
+//         }
 
-        const data = await response.json();
-        if (!data.choices || !data.choices[0]) {
-            throw new Error("Invalid API response structure");
-        }
+//         const data = await response.json();
+//         if (!data.choices || !data.choices[0]) {
+//             throw new Error("Invalid API response structure");
+//         }
 
-        return data.choices[0].text.trim();
-    } catch (error) {
-        console.error("Error fetching AI poem:", error);
-        return "(Error generating poem, please try again later.)";
-    }
-}
+//         return data.choices[0].text.trim();
+//     } catch (error) {
+//         console.error("Error fetching AI poem:", error);
+//         return "(Error generating poem, please try again later.)";
+//     }
+// }
 
 
 function copyLink() {
